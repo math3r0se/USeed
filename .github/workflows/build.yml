@@ -44,7 +44,7 @@ jobs:
         run: |
           mkdir -p /tmp/artifacts
           make build
-          cp useed_windows /tmp/artifacts/
+          cp useed.exe /tmp/artifacts/
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
