@@ -52,7 +52,7 @@ extraversion_release:
 	- @git add .
 	- @git commit -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)-rc$(EXTRAVERSION)"
 	- @git push
-	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)-rc$(EXTRAVERSION) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)-rc$(EXTRAVERSION)"
+	- @git tag -a "v$(VERSION).$(PATCHLEVEL).$(SUBLEVEL)-rc$(EXTRAVERSION)" -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)-rc$(EXTRAVERSION)"
 	- @git push --tags
 
 subversion_release:
