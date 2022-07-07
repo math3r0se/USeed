@@ -1,8 +1,17 @@
 name: Linux Build
 
-on:
-  push:
-    branches-ignore:    
-      - 'main'
-    tags:
-      - 'v*'
+on: push
+#   push:
+#     branches-ignore:    
+#       - 'main'
+#     tags:
+#       - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: |
+          make build

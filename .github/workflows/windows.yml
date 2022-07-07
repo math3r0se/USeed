@@ -1,8 +1,17 @@
 name: Windows Build
 
-on:
-  push:
-    branches-ignore:    
-      - 'main'
-    tags:
-      - 'v*'
+on: push
+#   push:
+#     branches-ignore:    
+#       - 'main'
+#     tags:
+#       - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: |
+          make build
