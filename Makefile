@@ -1,7 +1,7 @@
 VERSION = 0
 PATCHLEVEL = 1
 SUBLEVEL = 0
-EXTRAVERSION = 1
+EXTRAVERSION = 2
 NAME = useed
 
 ifeq ($(OS),Windows_NT)
@@ -18,7 +18,7 @@ ifeq ($(OS),Windows_NT)
         endif
     endif
 else
-	OUTPUT_FILE = $(NAME)
+	OUTPUT_FILE = $(NAME)_linux
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
         CCFLAGS += -D LINUX
@@ -28,6 +28,7 @@ else
     endif
     UNAME_P := $(shell uname -p)
     ifeq ($(UNAME_P),x86_64)
+        OUTPUT_FILE = $(NAME)_macos
         CCFLAGS += -D AMD64
     endif
     ifneq ($(filter %86,$(UNAME_P)),)
