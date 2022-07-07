@@ -79,6 +79,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
           files: |
-            - /tmp/artifacts/useed_linux
-            - /tmp/artifacts/useed_macos
-            - /tmp/artifacts/useed.exe
+            - useed_linux
+            - useed_macos
+            - useed.exe
