@@ -42,7 +42,9 @@ endif
 
 ifeq ($(UNAME_S),Darwin)
     OUTPUT_FILE = $(NAME)_macos
-else
+endif
+
+ifeq ($(UNAME_S),Linux)
     OUTPUT_FILE = $(NAME)_linux
 endif
 
