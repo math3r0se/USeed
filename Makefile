@@ -52,26 +52,26 @@ extraversion_release:
 	- @git add .
 	- @git commit -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
 	- @git push
-	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
+	- @git tag -a "v$(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)" -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
 	- @git push --tags
 
 subversion_release:
 	- @git add .
 	- @git commit -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)
 	- @git push
-	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)"
+	- @git tag -a "v$(VERSION).$(PATCHLEVEL).$(SUBLEVEL)" -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)"
 	- @git push --tags
 
 patch_release:
 	- @git add .
 	- @git commit -m "Build $(VERSION).$(PATCHLEVEL)
 	- @git push
-	- @git tag -a $(VERSION).$(PATCHLEVEL) -m "Build $(VERSION).$(PATCHLEVEL)"
+	- @git tag -a "v$(VERSION).$(PATCHLEVEL)" -m "Build $(VERSION).$(PATCHLEVEL)"
 	- @git push --tags
 
 major_release:
 	- @git add .
 	- @git commit -m "Build $(VERSION)
 	- @git push
-	- @git tag -a $(VERSION) -m "Build $(VERSION)"
+	- @git tag -a "v$(VERSION)" -m "Build $(VERSION)"
 	- @git push --tags
