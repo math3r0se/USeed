@@ -61,7 +61,7 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v3
         with:
-          name: useed_linux | useed_macos | useed.exe
+          name: useed_linux useed_macos useed.exe
           path: /tmp/artifacts
       - name: Publish
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -72,4 +72,3 @@ jobs:
             - /tmp/artifacts/useed_linux
             - /tmp/artifacts/useed_macos
             - /tmp/artifacts/useed.exe
-
