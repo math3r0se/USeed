@@ -2,5 +2,7 @@ name: MacOS Build
 
 on:
   push:
+    branches-ignore:    
+      - 'main'
     tags:
       - 'v*'

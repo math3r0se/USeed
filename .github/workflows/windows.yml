@@ -2,5 +2,7 @@ name: Windows Build
 
 on:
   push:
+    branches-ignore:    
+      - 'main'
     tags:
       - 'v*'
