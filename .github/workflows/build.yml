@@ -67,12 +67,20 @@ jobs:
         with:
           name: useed.exe
           path: /tmp/artifacts/useed.exe
-      - name: Publish
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Create Release
+        id: create-release
+        uses: actions/create-release@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
-          files: |
-            - /tmp/artifacts/useed_linux
-            - /tmp/artifacts/useed_macos
-            - /tmp/artifacts/useed.exe
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+      - name: Upload Release Assets
+        id: upload-release-assets
+        uses: dwenegar/upload-release-assets@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}
+          assets_path: /tmp/artifacts 
