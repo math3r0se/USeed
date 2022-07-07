@@ -58,17 +58,29 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: Download all artifacts
+      - name: Download Linux artifact
         uses: actions/download-artifact@v3
         with:
-          name: useed_linux useed_macos useed.exe
+          name: useed_linux
+          path: /tmp/artifacts
+      - name: Download MacOS artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: useed_macos
+          path: /tmp/artifacts
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: useed.exe
           path: /tmp/artifacts
       - name: Publish
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_toren: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          files:
             - /tmp/artifacts/useed_linux
             - /tmp/artifacts/useed_macos
             - /tmp/artifacts/useed.exe
+
+          
