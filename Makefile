@@ -6,7 +6,6 @@ NAME = useed
 
 ifeq ($(OS),Windows_NT)
     CCFLAGS += -D WIN32
-	OUTPUT_FILE = $(NAME).exe
     ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
         CCFLAGS += -D AMD64
     else
@@ -18,7 +17,6 @@ ifeq ($(OS),Windows_NT)
         endif
     endif
 else
-	OUTPUT_FILE = $(NAME)_linux
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
         CCFLAGS += -D LINUX
@@ -28,7 +26,6 @@ else
     endif
     UNAME_P := $(shell uname -p)
     ifeq ($(UNAME_P),x86_64)
-        OUTPUT_FILE = $(NAME)_macos
         CCFLAGS += -D AMD64
     endif
     ifneq ($(filter %86,$(UNAME_P)),)
@@ -39,6 +36,15 @@ else
     endif
 endif
 
+ifeq ($(OS),Windows_NT)
+	OUTPUT_FILE = $(NAME).exe
+endif
+
+ifeq ($(UNAME_S),Darwin)
+    OUTPUT_FILE = $(NAME)_macos
+else
+    OUTPUT_FILE = $(NAME)_linux
+endif
 
 CC = gcc
 STANDARD = gnu89
