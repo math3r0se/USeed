@@ -1,6 +1,6 @@
 name: MacOS Build
 
-# on:
+on: push
 #   push:
 #     branches-ignore:    
 #       - 'main'
