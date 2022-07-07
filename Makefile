@@ -54,3 +54,10 @@ extra_ver:
 	- @git push
 	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
 	- @git push --tags
+
+sub_ver:
+	- @git add .
+	- @git commit -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)
+	- @git push
+	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)"
+	- @git push --tags
