@@ -45,6 +45,10 @@ jobs:
           name: useed.exe
           path: build/useed.exe
   Publish:
+    needs:
+      - Build_Linux
+      - Build_MacOS
+      - Build_Windows
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
