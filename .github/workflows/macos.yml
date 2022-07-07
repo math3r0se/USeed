@@ -1,11 +1,11 @@
 name: MacOS Build
 
-on: push
-#   push:
-#     branches-ignore:    
-#       - 'main'
-#     tags:
-#       - 'v*'
+on:
+  push:
+    branches-ignore:    
+      - 'main'
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -15,3 +15,9 @@ jobs:
       - name: Build
         run: |
           make build
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with: 
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            useed
