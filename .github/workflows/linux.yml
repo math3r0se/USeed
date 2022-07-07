@@ -1,0 +1,6 @@
+name: Linux Build
+
+on:
+  push:
+    tags:
+      - 'v*'

@@ -1,0 +1,6 @@
+name: MacOS Build
+
+on:
+  push:
+    tags:
+      - 'v*'
