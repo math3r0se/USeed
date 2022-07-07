@@ -8,7 +8,7 @@ on:
       - 'v*'
 
 jobs:
-  Build Linux:
+  Build_Linux:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
         with:
           name: useed_linux
           path: build/useed_linux
-  Build MacOS:
+  Build_MacOS:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
         with:
           name: useed_macos
           path: build/useed_macos
-  Build Windows:
+  Build_Windows:
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@v3
