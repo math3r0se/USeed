@@ -47,3 +47,10 @@ MAIN_SRC = main.c
 
 build:
 	- $(CC) $(MAIN_SRC) $(CFLAGS)
+
+extra_ver:
+	- @git add .
+	- @git commit -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
+	- @git push
+	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL).$(EXTRAVERSION)"
+	- @git push --tags
