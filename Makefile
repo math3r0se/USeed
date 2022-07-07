@@ -61,3 +61,10 @@ sub_ver:
 	- @git push
 	- @git tag -a $(VERSION).$(PATCHLEVEL).$(SUBLEVEL) -m "Build $(VERSION).$(PATCHLEVEL).$(SUBLEVEL)"
 	- @git push --tags
+
+patch_ver:
+	- @git add .
+	- @git commit -m "Build $(VERSION).$(PATCHLEVEL)
+	- @git push
+	- @git tag -a $(VERSION).$(PATCHLEVEL) -m "Build $(VERSION).$(PATCHLEVEL)"
+	- @git push --tags
