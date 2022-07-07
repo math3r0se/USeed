@@ -14,24 +14,28 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build
         run: |
+          mkdir -p /tmp/artifacts
           make build
+          cp -r useed_linux /tmp/artifacts/
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: useed_linux
-          path: useed_linux
+          path: /tmp/artifacts
   Build_MacOS:
     runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
       - name: Build
         run: |
+          mkdir -p /tmp/artifacts
           make build
+          cp -r useed_macos /tmp/artifacts/
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: useed_macos
-          path: useed_macos
+          path: /tmp/artifacts
   Build_Windows:
     runs-on: windows-2022
     steps:
@@ -56,7 +60,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: useed_linux useed_macos useed.exe
-          path: useed_linux useed_macos useed.exe
+          path: /tmp/artifacts
       - name: Publish
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
