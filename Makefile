@@ -41,7 +41,8 @@ endif
 
 CC = gcc
 STANDARD = gnu89
-CFLAGS = -Wall -Wextra -Werror --std=$(STANDARD) -pedantic -O2 -g -o $(OUTPUT_FILE)
+LIBRARY = -Ilib
+CFLAGS = -Wall -Wextra -Werror --std=$(STANDARD) $(LIBRARY) -pedantic -O2 -g -o $(OUTPUT_FILE)
 MAIN_SRC = main.c
 
 build:

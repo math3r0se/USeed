@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "types.h"
 
 int main(){
-    printf("Hello World!\n");
+    u8 salut[16] = "Hello World";
+    printf("%s\n", salut);
     return 0;
 }
