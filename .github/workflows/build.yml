@@ -19,7 +19,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: useed_linux
-          path: build/useed_linux
+          path: useed_linux
   Build_MacOS:
     runs-on: macos-12
     steps:
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: useed_macos
-          path: build/useed_macos
+          path: useed_macos
   Build_Windows:
     runs-on: windows-2022
     steps:
@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: useed.exe
-          path: build/useed.exe
+          path: useed.exe
   Publish:
     needs:
       - Build_Linux
@@ -56,14 +56,14 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: useed_linux useed_macos useed.exe
-          path: build/useed_linux build/useed_macos build/useed.exe
+          path: useed_linux useed_macos useed.exe
       - name: Publish
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_toren: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            - "build/useed_linux"
-            - "build/useed_macos"
-            - "build/useed.exe"
+            - useed_linux
+            - useed_macos
+            - useed.exe
 
