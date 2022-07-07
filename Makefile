@@ -68,3 +68,10 @@ patch_ver:
 	- @git push
 	- @git tag -a $(VERSION).$(PATCHLEVEL) -m "Build $(VERSION).$(PATCHLEVEL)"
 	- @git push --tags
+
+major_release:
+	- @git add .
+	- @git commit -m "Build $(VERSION)
+	- @git push
+	- @git tag -a $(VERSION) -m "Build $(VERSION)"
+	- @git push --tags
