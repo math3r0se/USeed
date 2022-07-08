@@ -1,7 +1,7 @@
 VERSION = 0
 PATCHLEVEL = 1
 SUBLEVEL = 1
-EXTRAVERSION = 0
+EXTRAVERSION = 1
 NAME = useed
 
 ifeq ($(OS),Windows_NT)
@@ -52,7 +52,7 @@ CC = gcc
 STANDARD = gnu89
 LIBRARY = -Ilib
 CFLAGS = -Wall -Wextra -Werror --std=$(STANDARD) $(LIBRARY) -pedantic -O2 -g -o $(OUTPUT_FILE)
-MAIN_SRC = main.c
+MAIN_SRC = src/main.c
 
 build:
 	- $(CC) $(MAIN_SRC) $(CFLAGS)
