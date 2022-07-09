@@ -1,18 +1,6 @@
-#ifdef _WIN32
-#define OS_WINDOWS
-#define OS_EXTENSION ".exe"
-#elif defined(__linux__)
-#define OS_LINUX
-#define OS_EXTENSION ""
-#elif defined(__APPLE__)
-#define OS_MACOS
-#define OS_EXTENSION ""
-#else
-#error "Unknown OS"
-#endif
-
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "types.h"
 
 int main(){
