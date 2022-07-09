@@ -18,8 +18,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: useed_linux
-          path: useed_linux
+          name: useed
+          path: useed
   Build_MacOS:
     runs-on: macos-12
     steps:
@@ -30,8 +30,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: useed_macos
-          path: useed_macos
+          name: useed
+          path: useed
   Build_Windows:
     runs-on: windows-2022
     steps:
@@ -55,13 +55,13 @@ jobs:
       - name: Download Linux artifact
         uses: actions/download-artifact@v3
         with:
-          name: useed_linux
-          path: /tmp/artifacts/useed_linux
+          name: useed
+          path: /tmp/artifacts/useed
       - name: Download MacOS artifact
         uses: actions/download-artifact@v3
         with:
-          name: useed_macos
-          path: /tmp/artifacts/useed_macos
+          name: useed
+          path: /tmp/artifacts/useed
       - name: Download Windows artifact
         uses: actions/download-artifact@v3
         with:
