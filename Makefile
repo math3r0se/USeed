@@ -1,7 +1,7 @@
 VERSION = 0
 PATCHLEVEL = 1
 SUBLEVEL = 1
-EXTRAVERSION = 0
+EXTRAVERSION = 7
 NAME = useed
 
 ifeq ($(OS),Windows_NT)
