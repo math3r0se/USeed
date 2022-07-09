@@ -1,57 +1,13 @@
 VERSION = 0
 PATCHLEVEL = 1
 SUBLEVEL = 1
-EXTRAVERSION = 1
+EXTRAVERSION = 2
 NAME = useed
-
-ifeq ($(OS),Windows_NT)
-    CCFLAGS += -D WIN32
-    ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-        CCFLAGS += -D AMD64
-    else
-        ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-            CCFLAGS += -D AMD64
-        endif
-        ifeq ($(PROCESSOR_ARCHITECTURE),x86)
-            CCFLAGS += -D IA32
-        endif
-    endif
-else
-    UNAME_S := $(shell uname -s)
-    ifeq ($(UNAME_S),Linux)
-        CCFLAGS += -D LINUX
-    endif
-    ifeq ($(UNAME_S),Darwin)
-        CCFLAGS += -D OSX
-    endif
-    UNAME_P := $(shell uname -p)
-    ifeq ($(UNAME_P),x86_64)
-        CCFLAGS += -D AMD64
-    endif
-    ifneq ($(filter %86,$(UNAME_P)),)
-        CCFLAGS += -D IA32
-    endif
-    ifneq ($(filter arm%,$(UNAME_P)),)
-        CCFLAGS += -D ARM
-    endif
-endif
-
-ifeq ($(OS),Windows_NT)
-	OUTPUT_FILE = $(NAME).exe
-endif
-
-ifeq ($(UNAME_S),Darwin)
-    OUTPUT_FILE = $(NAME)_macos
-endif
-
-ifeq ($(UNAME_S),Linux)
-    OUTPUT_FILE = $(NAME)_linux
-endif
 
 CC = gcc
 STANDARD = gnu89
 LIBRARY = -Ilib
-CFLAGS = -Wall -Wextra -Werror --std=$(STANDARD) $(LIBRARY) -pedantic -O2 -g -o $(OUTPUT_FILE)
+CFLAGS = -Wall -Wextra -Werror --std=$(STANDARD) $(LIBRARY) -pedantic -O2 -g -o useed
 MAIN_SRC = src/main.c
 
 build:
